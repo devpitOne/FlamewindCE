@@ -1,0 +1,262 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{13996596-B78E-4EA0-9E28-D2F661F6CF87}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ConversationEditorGui</RootNamespace>
+    <AssemblyName>ConversationEditorGui</AssemblyName>
+    <ApplicationIcon>ConversationEditor.ico</ApplicationIcon>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClipboardNode.cs" />
+    <Compile Include="CloseDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CloseDialog.Designer.cs">
+      <DependentUpon>CloseDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CloseDialogOption.cs" />
+    <Compile Include="ConversationLinkLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ConversationNode.cs" />
+    <Compile Include="DeleteNodeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteNodeDialog.Designer.cs">
+      <DependentUpon>DeleteNodeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteNodeDialogOptions.cs" />
+    <Compile Include="ExpandSettings.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LinkedCommentsBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LinkedTextBox.cs" />
+    <Compile Include="LinkedTree.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MainMenuAboutMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MainMenuConversationMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MainMenuFileMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MainMenuNodeMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MainMenuStripClass.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MainToolbar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NodeSorter.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="ProgramSettings.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="About.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CloseDialog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CloseDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteNodeDialog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DeleteNodeDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LinkedTree.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>LinkedTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestConversation.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TestConversation.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="TreeTab.resx">
+      <DependentUpon>TreeTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="RedoCollection.cs" />
+    <Compile Include="SelectedSection.cs" />
+    <Compile Include="TabControlDragDrop.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TestConversation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestConversation.Designer.cs">
+      <DependentUpon>TestConversation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TreeConversation.cs" />
+    <Compile Include="TreeTab.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UndoCollection.cs" />
+    <Compile Include="UndoState.cs" />
+    <Compile Include="Win32.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Conversation Editor\Editor.csproj">
+      <Project>{3FEEE121-6B45-4F8C-905B-4ABAF804CED7}</Project>
+      <Name>Editor</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\closeButtonOff.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\closeButtonHover.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EmptyCommentIconSubnodes.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EmptyCommentIconNoSubnodes.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CommentIcon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CopyConversationToText.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CopyNodes.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeleteNode.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MoveNodeDown.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MoveNodeUp.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewChildNode.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewConversationIcon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpenConversation.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PasteNodeLink.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PasteNodes.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SaveConversation.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SaveConversationAs.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SaveConversationAutoInc.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Redo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TestConversation.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Resources\Undo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MainIcon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ConversationEditor.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

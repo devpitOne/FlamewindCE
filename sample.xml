@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<conversation sncount="3">
+	<subnodes>
+		<npcnode idnum="1" ordernum="1" sncount="2">
+			<ctext>Hello, how are you doing?</ctext>
+			<subnodes>
+				<pcnode idnum="4" ordernum="2" sncount="1">
+					<ctext>Fine, thanks.</ctext>
+					<ccom>comments on this line go here</ccom>
+					<subnodes>
+						<npcnode idnum="5" ordernum="1">
+							<ctext>Glad to hear it.</ctext>
+						</npcnode>
+					</subnodes>
+				</pcnode>
+				<pcnode idnum="6" ordernum="1">
+					<ctext>Not so well.</ctext>
+				</pcnode>
+			</subnodes>
+		</npcnode>
+		<npcnode idnum="2" ordernum="2" sncount="1">
+			<ccom>if the PC has talked to this npc before</ccom>
+			<ctext>How well do you know this area?</ctext>
+			<subnodes>
+				<pcnode linkto="6" ordernum="1" />
+			</subnodes>
+		</npcnode>
+		<npcnode linkto="2" ordernum="3" />
+	</subnodes>
+</conversation>
