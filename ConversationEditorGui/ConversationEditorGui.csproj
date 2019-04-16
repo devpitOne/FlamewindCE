@@ -85,6 +85,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="LinkedTextBox.cs" />
+    <Compile Include="LinkedTextBoxExtensions.cs" />
     <Compile Include="LinkedTree.cs">
       <SubType>Component</SubType>
     </Compile>

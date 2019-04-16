@@ -86,9 +86,6 @@ namespace ConversationEditorGui
             #endregion
 
             #region Add Controls
-            //myTextBox.MouseRightButtonUp += myTextBox_RightClick;
-            //myTextBox.ContextMenu = new System.Windows.Controls.ContextMenu();
-            //myTextBox.ContextMenu.Items.Add("TEST");
             myParent.Controls.Add(this);
             this.Controls.Add(this.splitTreeFromText);
             this.splitTreeFromText.Panel1.Controls.Add(this.myTree);
@@ -646,24 +643,7 @@ namespace ConversationEditorGui
         {
             this.myTextBox.SelectAll();
             this.myTextBox.Focus();
-        }
-
-        /* TODO
-         * Tagging - 
-        Standard -
-
-        Highlight -
-        <StartAction></Start>
-        <StartHighlight></Start>
-        <StartCheck>[SkillName?]</Start>
-         * */
-        private void myTextBox_RightClick(object sender, EventArgs e)
-        {
-            var selectionStart = myTextBox.SelectionStart;
-            myTextBox.Text = myTextBox.Text.Insert(selectionStart + myTextBox.SelectionLength, "</>");
-            myTextBox.Text = myTextBox.Text.Insert(selectionStart, "<>");
-
-        }
+        }        
 
         private void myTextBox_TextChanged(object sender, EventArgs e)
         {
