@@ -342,8 +342,10 @@ namespace Editor.NWNEE
             catch (InvalidCastException)
             {
                 //It is a new conversation to be converted for the first time
-                master = new NWNStruct();
-                master.subNodes = conv.subNodes;
+                master = new NWNStruct
+                {
+                    subNodes = conv.subNodes
+                };
             }
             if (string.IsNullOrEmpty(master.__data_type))
                 master.__data_type = "DLG";

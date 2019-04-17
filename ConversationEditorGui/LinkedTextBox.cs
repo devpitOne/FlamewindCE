@@ -95,10 +95,20 @@ namespace ConversationEditorGui
         {
             var selectionStart = SelectionStart;
             var newText = Text;
+            var addLength = ("<Start" + token + ">[").Length;
             newText = newText.Insert(selectionStart + SelectionLength, endToken+ "]</Start>");
             newText = newText.Insert(selectionStart, "<Start"+token+">[");
             Text = newText;
+            Select(selectionStart + addLength, 0);
 
+        }
+
+        private void AddToken(string token)
+        {
+            var selectionStart = SelectionStart;
+            var newText = Text;
+            Text = newText.Insert(selectionStart, token);
+            Select(selectionStart, token.Length);
         }
     }
 }
