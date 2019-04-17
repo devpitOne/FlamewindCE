@@ -51,21 +51,30 @@ namespace ConversationEditorGui
                 default: break;
             }
         }
+
+        /// <summary>
+        /// TODO: use RoutedUICommands by making menu items properties rather than created on the fly.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void ContextMenu_Opening(object sender, ContextMenuEventArgs e)
         {
             var addAction = new MenuItem
             {
-                Header = "Add Action"
+                Header = "Add Action",
+                InputGestureText = "F6"
             };
             addAction.Click += AddAction_Click;
             var addHigh = new MenuItem
             {
-                Header = "Add Highlight"
+                Header = "Add Highlight",
+                InputGestureText = "F7"
             };
             addHigh.Click += AddHighlight_Click;
             var addCheck = new MenuItem
             {
-                Header = "Add Skill Check"
+                Header = "Add Skill Check",
+                InputGestureText = "F8"
             };
             addCheck.Click += AddCheck_Click;
             var items = new MenuItem[] { addAction, addHigh, addCheck };
