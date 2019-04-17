@@ -53,14 +53,20 @@ namespace ConversationEditorGui
         }
         public void ContextMenu_Opening(object sender, ContextMenuEventArgs e)
         {
-            var addAction = new MenuItem();
-            addAction.Header = "Add Action";
+            var addAction = new MenuItem
+            {
+                Header = "Add Action"
+            };
             addAction.Click += AddAction_Click;
-            var addHigh = new MenuItem();
-            addHigh.Header = "Add Highlight";
+            var addHigh = new MenuItem
+            {
+                Header = "Add Highlight"
+            };
             addHigh.Click += AddHighlight_Click;
-            var addCheck = new MenuItem();
-            addCheck.Header = "Add Skill Check";
+            var addCheck = new MenuItem
+            {
+                Header = "Add Skill Check"
+            };
             addCheck.Click += AddCheck_Click;
             var items = new MenuItem[] { addAction, addHigh, addCheck };
             this.InjectIntoDefaultMenu(e, p => base.OnContextMenuOpening(p), items);

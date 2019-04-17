@@ -41,8 +41,10 @@ namespace ConversationEditorGui
 
         public static TreeConversation NewEmptyTree()
         {
-            TreeConversation newTreeConversation = new TreeConversation();
-            newTreeConversation.myConversation = Conversation.NewEmptyConversation();
+            TreeConversation newTreeConversation = new TreeConversation
+            {
+                myConversation = Conversation.NewEmptyConversation()
+            };
             newTreeConversation.myTreeConversation = newTreeConversation;
             newTreeConversation.Text = "Root";
             return newTreeConversation;
@@ -50,7 +52,7 @@ namespace ConversationEditorGui
 
         public TreeConversation DuplicateTreeConversation()
         {
-            Conversation.SortConversation(this.myConversation);
+            Conversation.SortConversation(myConversation);
             TreeConversation copy = new TreeConversation();
             Conversation conversation = myConversation.DuplicateConversation();
             copy.myConversation = conversation;
@@ -66,7 +68,7 @@ namespace ConversationEditorGui
             {
                 for (int i = 0; i < copy.Nodes.Count; i++)
                 {
-                    ((ConversationNode)(copy.Nodes[i])).SetExpandState(((ConversationNode)this.Nodes[i]));
+                    ((ConversationNode)(copy.Nodes[i])).SetExpandState(((ConversationNode)Nodes[i]));
                 }
             }
             return copy;

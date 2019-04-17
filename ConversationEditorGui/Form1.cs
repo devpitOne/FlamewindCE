@@ -29,7 +29,7 @@ namespace ConversationEditorGui
 
         private Timer commentsTimer;
 
-        public TreeTab activeTab
+        public TreeTab ActiveTab
         {
             get
             {
@@ -58,13 +58,17 @@ namespace ConversationEditorGui
 
             Win32.SetClipboardViewer(this.Handle.ToInt32());
 
-            textboxTimer = new Timer();
-            textboxTimer.Interval = 3000;
+            textboxTimer = new Timer
+            {
+                Interval = 3000
+            };
             textboxTimer.Tick += new EventHandler(textboxTimer_Tick);
             textboxTimer.Stop();
 
-            commentsTimer = new Timer();
-            commentsTimer.Interval = 3000;
+            commentsTimer = new Timer
+            {
+                Interval = 3000
+            };
             commentsTimer.Tick += new EventHandler(commentsTimer_Tick);
             commentsTimer.Stop();
         }
@@ -193,22 +197,22 @@ namespace ConversationEditorGui
 
         public void SaveActiveConversation()
         {
-            if (activeTab != null)
+            if (ActiveTab != null)
             {
-                activeTab.SaveConversation(VERSION_NUMBER);
+                ActiveTab.SaveConversation(VERSION_NUMBER);
             }
         }
 
         public void SaveActiveConversationAs()
         {
-            if (activeTab != null)
+            if (ActiveTab != null)
             {
                 SelectedSection selectedSection = GetSelectedSection();
-                activeTab.FocusTree();
-                saveFileAsDialog.Title = activeTab.Text;
-                if (activeTab.myFileName != "")
+                ActiveTab.FocusTree();
+                saveFileAsDialog.Title = ActiveTab.Text;
+                if (ActiveTab.myFileName != "")
                 {
-                    this.saveFileAsDialog.FileName = activeTab.myFileName;
+                    this.saveFileAsDialog.FileName = ActiveTab.myFileName;
                 }
                 else
                 {
@@ -217,7 +221,7 @@ namespace ConversationEditorGui
                 if (this.saveFileAsDialog.ShowDialog() == DialogResult.OK)
                 {
                     //save
-                    activeTab.SaveConversationAs(saveFileAsDialog.FileName, VERSION_NUMBER);
+                    ActiveTab.SaveConversationAs(saveFileAsDialog.FileName, VERSION_NUMBER);
                     TabSwitch();
                 }
                 else
@@ -226,26 +230,26 @@ namespace ConversationEditorGui
                 }
                 if (selectedSection == SelectedSection.TextBox)
                 {
-                    activeTab.FocusTextBox();
+                    ActiveTab.FocusTextBox();
                 }
                 else if (selectedSection == SelectedSection.Comments)
                 {
-                    activeTab.FocusCommentsBox();
+                    ActiveTab.FocusCommentsBox();
                 }
             }
         }
 
         public void SaveActiveConversationAutoIncrement()
         {
-            if (activeTab != null)
+            if (ActiveTab != null)
             {
-                activeTab.SaveConversationAutoIncremented(VERSION_NUMBER);
+                ActiveTab.SaveConversationAutoIncremented(VERSION_NUMBER);
             }
         }
 
         private void CloseTab()
         {
-            activeTab.CloseTab();
+            ActiveTab.CloseTab();
         }
 
 
@@ -255,18 +259,18 @@ namespace ConversationEditorGui
 
         public void TestConversation()
         {
-            SetTestConversation(activeTab.myTree.myTreeConversation);
+            SetTestConversation(ActiveTab.myTree.myTreeConversation);
             ShowTestConversationDialog();
         }
 
         public void ExpandAllNodes()
         {
-            activeTab.ExpandAllMenuSelection();
+            ActiveTab.ExpandAllMenuSelection();
         }
 
         public void CollapseAllNodes()
         {
-            activeTab.CollapseAllMenuSelection();
+            ActiveTab.CollapseAllMenuSelection();
         }
 
         public void CopyConversationAsText()
@@ -283,29 +287,29 @@ namespace ConversationEditorGui
 
         public void NewChildNode()
         {
-            if (activeTab != null)
+            if (ActiveTab != null)
             {
-                if (activeTab.mySelectedNode != null)
+                if (ActiveTab.mySelectedNode != null)
                 {
-                    activeTab.FocusTree();
-                    activeTab.Updated();
-                    activeTab.SetLastState();
-                    activeTab.AddNewNode();
-                    activeTab.UpdateUndo();
+                    ActiveTab.FocusTree();
+                    ActiveTab.Updated();
+                    ActiveTab.SetLastState();
+                    ActiveTab.AddNewNode();
+                    ActiveTab.UpdateUndo();
                 }
             }
         }
 
         public void EditNode()
         {
-            activeTab.EditNode();
+            ActiveTab.EditNode();
         }
 
         public void Undo()
         {
-            if (activeTab.HasUndos())
+            if (ActiveTab.HasUndos())
             {
-                activeTab.Undo();
+                ActiveTab.Undo();
             }
             else
                 throw new Exception("Nothing to undo.");
@@ -313,9 +317,9 @@ namespace ConversationEditorGui
 
         public void Redo()
         {
-            if (activeTab.HasRedos())
+            if (ActiveTab.HasRedos())
             {
-                activeTab.Redo();
+                ActiveTab.Redo();
             }
             else
                 throw new Exception("Nothing to redo.");
@@ -323,13 +327,13 @@ namespace ConversationEditorGui
 
         public void CopyNodeAndSubnodes()
         {
-            if (activeTab.IsTreeSelected)
+            if (ActiveTab.IsTreeSelected)
             {
-                activeTab.CopySelectedNodeToClipboard();
+                ActiveTab.CopySelectedNodeToClipboard();
             }
-            else if (activeTab.IsTextBoxSelected)
+            else if (ActiveTab.IsTextBoxSelected)
             {
-                activeTab.CopyTextBox();
+                ActiveTab.CopyTextBox();
             }
             else // Nothing is available for copying
             {
@@ -339,47 +343,47 @@ namespace ConversationEditorGui
 
         public void PasteNodeAndSubnodes()
         {
-            activeTab.PasteNodeAndSubnodes();
+            ActiveTab.PasteNodeAndSubnodes();
         }
 
         public void PasteNodeAsLink()
         {
-            activeTab.PasteNodeAsLink();
+            ActiveTab.PasteNodeAsLink();
         }
 
         public void FollowSelectedLink()
         {
-            activeTab.FollowSelectedLink();
+            ActiveTab.FollowSelectedLink();
         }
 
         public void MakeLinkReal()
         {
-            activeTab.MakeLinkReal();
+            ActiveTab.MakeLinkReal();
         }
 
         public void ExpandAllSubnodes()
         {
-            activeTab.ExpandAllSubnodes();
+            ActiveTab.ExpandAllSubnodes();
         }
 
         public void CollapseAllExceptThis()
         {
-            activeTab.CollapseAllExceptThis();
+            ActiveTab.CollapseAllExceptThis();
         }
 
         public void MoveNodeUp()
         {
-            activeTab.MoveNodeUp();
+            ActiveTab.MoveNodeUp();
         }
 
         public void MoveNodeDown()
         {
-            activeTab.MoveNodeDown();
+            ActiveTab.MoveNodeDown();
         }
 
         public void DeleteNodeAndSubnodes()
         {
-            activeTab.DeleteTreeNode();
+            ActiveTab.DeleteTreeNode();
         }
 
         #endregion
@@ -499,8 +503,8 @@ namespace ConversationEditorGui
         public void LinkedTextBoxInFocus(object sender, EventArgs e)
         {
             CheckClipboard();
-            activeTab.myTextBox.textOnEntry = activeTab.myTextBox.Text;
-            activeTab.myTextBox.stateOnEntry = UndoState.CaptureCurrentState(activeTab.myTree);
+            ActiveTab.myTextBox.textOnEntry = ActiveTab.myTextBox.Text;
+            ActiveTab.myTextBox.stateOnEntry = UndoState.CaptureCurrentState(ActiveTab.myTree);
             textboxTimer.Start();
         }
 
@@ -511,11 +515,11 @@ namespace ConversationEditorGui
 
         private void IfTextboxChangedUpdateUndo()
         {
-            if (activeTab.myTextBox.textOnEntry != activeTab.myTextBox.Text)
+            if (ActiveTab.myTextBox.textOnEntry != ActiveTab.myTextBox.Text)
             {
-                activeTab.AddUndo(activeTab.myTextBox.stateOnEntry);
-                activeTab.myTextBox.textOnEntry = activeTab.myTextBox.Text;
-                activeTab.myTextBox.stateOnEntry = UndoState.CaptureCurrentState(activeTab.myTree);
+                ActiveTab.AddUndo(ActiveTab.myTextBox.stateOnEntry);
+                ActiveTab.myTextBox.textOnEntry = ActiveTab.myTextBox.Text;
+                ActiveTab.myTextBox.stateOnEntry = UndoState.CaptureCurrentState(ActiveTab.myTree);
             }
             if (GetSelectedSection() == SelectedSection.TextBox)
             {
@@ -526,20 +530,20 @@ namespace ConversationEditorGui
         public void LinkedTextBoxLostFocus(object sender, EventArgs e)
         {
             DisablePaste();
-            if (activeTab.myTextBox.textOnEntry != activeTab.myTextBox.Text)
+            if (ActiveTab.myTextBox.textOnEntry != ActiveTab.myTextBox.Text)
             {
-                activeTab.AddUndo(activeTab.myTextBox.stateOnEntry);
+                ActiveTab.AddUndo(ActiveTab.myTextBox.stateOnEntry);
             }
-            activeTab.myTextBox.textOnEntry = "";
-            activeTab.myTextBox.stateOnEntry = null;
+            ActiveTab.myTextBox.textOnEntry = "";
+            ActiveTab.myTextBox.stateOnEntry = null;
             textboxTimer.Stop();
         }
 
         public void CommentsBoxInFocus(object sender, EventArgs e)
         {
             CheckClipboard();
-            activeTab.myCommentsBox.textOnEntry = activeTab.myCommentsBox.Text;
-            activeTab.myCommentsBox.stateOnEntry = UndoState.CaptureCurrentState(activeTab.myTree);
+            ActiveTab.myCommentsBox.textOnEntry = ActiveTab.myCommentsBox.Text;
+            ActiveTab.myCommentsBox.stateOnEntry = UndoState.CaptureCurrentState(ActiveTab.myTree);
             commentsTimer.Start();
         }
 
@@ -550,11 +554,11 @@ namespace ConversationEditorGui
 
         private void IfCommentsBoxChangedUpdateUndo()
         {
-            if (activeTab.myCommentsBox.textOnEntry != activeTab.myCommentsBox.Text)
+            if (ActiveTab.myCommentsBox.textOnEntry != ActiveTab.myCommentsBox.Text)
             {
-                activeTab.AddUndo(activeTab.myCommentsBox.stateOnEntry);
-                activeTab.myCommentsBox.textOnEntry = activeTab.myCommentsBox.Text;
-                activeTab.myCommentsBox.stateOnEntry = UndoState.CaptureCurrentState(activeTab.myTree);
+                ActiveTab.AddUndo(ActiveTab.myCommentsBox.stateOnEntry);
+                ActiveTab.myCommentsBox.textOnEntry = ActiveTab.myCommentsBox.Text;
+                ActiveTab.myCommentsBox.stateOnEntry = UndoState.CaptureCurrentState(ActiveTab.myTree);
             }
             if (GetSelectedSection() == SelectedSection.Comments)
             {
@@ -565,12 +569,12 @@ namespace ConversationEditorGui
         public void CommentsBoxLostFocus(object sender, EventArgs e)
         {
             DisablePaste();
-            if (activeTab.myCommentsBox.textOnEntry != activeTab.myCommentsBox.Text)
+            if (ActiveTab.myCommentsBox.textOnEntry != ActiveTab.myCommentsBox.Text)
             {
-                activeTab.AddUndo(activeTab.myCommentsBox.stateOnEntry);
+                ActiveTab.AddUndo(ActiveTab.myCommentsBox.stateOnEntry);
             }
-            activeTab.myCommentsBox.textOnEntry = "";
-            activeTab.myCommentsBox.stateOnEntry = null;
+            ActiveTab.myCommentsBox.textOnEntry = "";
+            ActiveTab.myCommentsBox.stateOnEntry = null;
             commentsTimer.Stop();
         }
 
@@ -581,9 +585,9 @@ namespace ConversationEditorGui
 
         public void TabSwitch()
         {
-            if (activeTab != null)
+            if (ActiveTab != null)
             {
-                if (activeTab.everSaved)
+                if (ActiveTab.everSaved)
                 {
                     this.mainDropdownMenus.EnableAutoIncrement();
                     this.mainToolbar.EnableAutoIncrement();
@@ -600,7 +604,7 @@ namespace ConversationEditorGui
 
         public ConversationNode GetActiveRootNode()
         {
-            return activeTab.GetRootNode();
+            return ActiveTab.GetRootNode();
         }
 
         public SelectedSection GetSelectedSection()
@@ -609,7 +613,7 @@ namespace ConversationEditorGui
             {
                 return SelectedSection.None;
             }
-            else return activeTab.GetSelectedSection();
+            else return ActiveTab.GetSelectedSection();
         }
 
         private void CheckClipboard()
@@ -655,28 +659,28 @@ namespace ConversationEditorGui
 
         private void EnableCopy()
         {
-            activeTab.EnableCopy();
+            ActiveTab.EnableCopy();
             mainDropdownMenus.EnableCopy();
             mainToolbar.EnableCopy();
         }
 
         private void DisableCopy()
         {
-            activeTab.DisableCopy();
+            ActiveTab.DisableCopy();
             mainDropdownMenus.DisableCopy();
             mainToolbar.DisableCopy();
         }
 
         private void EnableDelete()
         {
-            activeTab.EnableDelete();
+            ActiveTab.EnableDelete();
             mainDropdownMenus.EnableDelete();
             mainToolbar.EnableDelete();
         }
 
         private void DisableDelete()
         {
-            activeTab.DisableDelete();
+            ActiveTab.DisableDelete();
             mainDropdownMenus.DisableDelete();
             mainToolbar.DisableDelete();
         }

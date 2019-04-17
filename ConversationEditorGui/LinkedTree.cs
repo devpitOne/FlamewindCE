@@ -141,232 +141,232 @@ namespace ConversationEditorGui
         private void InitializeComponent()
         {
             #region Initialize Context Menu
-            this.components = new System.ComponentModel.Container();
-            this.treeContextMenu = new ContextMenuStrip(this.components);
-            this.addNewChildNodeMenuItem = new ToolStripMenuItem();
-            this.editTextMenuItem = new ToolStripMenuItem();
-            this.toolStripSeparator1 = new ToolStripSeparator();
-            this.moveUpMenuItem = new ToolStripMenuItem();
-            this.moveDownMenuItem = new ToolStripMenuItem();
-            this.toolStripSeparator2 = new ToolStripSeparator();
-            this.undoMenuItem = new ToolStripMenuItem();
-            this.redoMenuItem = new ToolStripMenuItem();
-            this.toolStripSeparator3 = new ToolStripSeparator();
-            this.copyMenuItem = new ToolStripMenuItem();
-            this.pasteMenuItem = new ToolStripMenuItem();
-            this.pasteLinkMenuItem = new ToolStripMenuItem();
-            this.followLinkMenuItem = new ToolStripMenuItem();
-            this.makeLinkRealMenuItem = new ToolStripMenuItem();
-            this.toolStripSeparator4 = new ToolStripSeparator();
-            this.toolStripSeparator5 = new ToolStripSeparator();
-            this.deleteMenuItem = new ToolStripMenuItem();
-            this.treeContextMenu.SuspendLayout();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            treeContextMenu = new ContextMenuStrip(components);
+            addNewChildNodeMenuItem = new ToolStripMenuItem();
+            editTextMenuItem = new ToolStripMenuItem();
+            toolStripSeparator1 = new ToolStripSeparator();
+            moveUpMenuItem = new ToolStripMenuItem();
+            moveDownMenuItem = new ToolStripMenuItem();
+            toolStripSeparator2 = new ToolStripSeparator();
+            undoMenuItem = new ToolStripMenuItem();
+            redoMenuItem = new ToolStripMenuItem();
+            toolStripSeparator3 = new ToolStripSeparator();
+            copyMenuItem = new ToolStripMenuItem();
+            pasteMenuItem = new ToolStripMenuItem();
+            pasteLinkMenuItem = new ToolStripMenuItem();
+            followLinkMenuItem = new ToolStripMenuItem();
+            makeLinkRealMenuItem = new ToolStripMenuItem();
+            toolStripSeparator4 = new ToolStripSeparator();
+            toolStripSeparator5 = new ToolStripSeparator();
+            deleteMenuItem = new ToolStripMenuItem();
+            treeContextMenu.SuspendLayout();
+            SuspendLayout();
             // 
             // treeContextMenu
             // 
-            this.treeContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addNewChildNodeMenuItem,
-            this.editTextMenuItem,
-            this.toolStripSeparator1,
-            this.moveUpMenuItem,
-            this.moveDownMenuItem,
-            this.toolStripSeparator2,
-            this.undoMenuItem,
-            this.redoMenuItem,
-            this.toolStripSeparator3,
-            this.copyMenuItem,
-            this.pasteMenuItem,
-            this.pasteLinkMenuItem,
-            this.followLinkMenuItem,
-            this.makeLinkRealMenuItem,
-            this.toolStripSeparator4,
-            this.toolStripSeparator5,
-            this.deleteMenuItem});
-            this.treeContextMenu.Name = "treeContextMenu";
-            this.treeContextMenu.Size = new System.Drawing.Size(216, 192);
+            treeContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            addNewChildNodeMenuItem,
+            editTextMenuItem,
+            toolStripSeparator1,
+            moveUpMenuItem,
+            moveDownMenuItem,
+            toolStripSeparator2,
+            undoMenuItem,
+            redoMenuItem,
+            toolStripSeparator3,
+            copyMenuItem,
+            pasteMenuItem,
+            pasteLinkMenuItem,
+            followLinkMenuItem,
+            makeLinkRealMenuItem,
+            toolStripSeparator4,
+            toolStripSeparator5,
+            deleteMenuItem});
+            treeContextMenu.Name = "treeContextMenu";
+            treeContextMenu.Size = new System.Drawing.Size(216, 192);
             // 
             // addNewChildNodeMenuItem
             // 
-            this.addNewChildNodeMenuItem.Name = "addNewChildNodeMenuItem";
-            this.addNewChildNodeMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.addNewChildNodeMenuItem.Text = "Create New Node As Child Of This Node";
-            this.addNewChildNodeMenuItem.Click += new EventHandler(addNewChildNodeMenuItem_Click);
+            addNewChildNodeMenuItem.Name = "addNewChildNodeMenuItem";
+            addNewChildNodeMenuItem.Size = new System.Drawing.Size(215, 22);
+            addNewChildNodeMenuItem.Text = "Create New Node As Child Of This Node";
+            addNewChildNodeMenuItem.Click += new EventHandler(AddNewChildNodeMenuItem_Click);
             // 
             // editTextMenuItem
             // 
-            this.editTextMenuItem.Name = "editTextMenuItem";
-            this.editTextMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.editTextMenuItem.Text = "Edit Text Of This Node";
-            this.editTextMenuItem.Click += new EventHandler(editTextMenuItem_Click);
+            editTextMenuItem.Name = "editTextMenuItem";
+            editTextMenuItem.Size = new System.Drawing.Size(215, 22);
+            editTextMenuItem.Text = "Edit Text Of This Node";
+            editTextMenuItem.Click += new EventHandler(EditTextMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(212, 6);
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new System.Drawing.Size(212, 6);
             // 
             // moveUpMenuItem
             // 
-            this.moveUpMenuItem.Name = "moveUpMenuItem";
-            this.moveUpMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.moveUpMenuItem.Text = "Move This Node Up";
-            this.moveUpMenuItem.Click += new EventHandler(moveUpMenuItem_Click);
+            moveUpMenuItem.Name = "moveUpMenuItem";
+            moveUpMenuItem.Size = new System.Drawing.Size(215, 22);
+            moveUpMenuItem.Text = "Move This Node Up";
+            moveUpMenuItem.Click += new EventHandler(MoveUpMenuItem_Click);
             // 
             // moveDownMenuItem
             // 
-            this.moveDownMenuItem.Name = "moveDownMenuItem";
-            this.moveDownMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.moveDownMenuItem.Text = "Move This Node Down";
-            this.moveDownMenuItem.Click += new EventHandler(moveDownMenuItem_Click);
+            moveDownMenuItem.Name = "moveDownMenuItem";
+            moveDownMenuItem.Size = new System.Drawing.Size(215, 22);
+            moveDownMenuItem.Text = "Move This Node Down";
+            moveDownMenuItem.Click += new EventHandler(MoveDownMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(212, 6);
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new System.Drawing.Size(212, 6);
             //
             // undoMenuItem
             //
-            this.undoMenuItem.Name = "undoMenuItem";
-            this.undoMenuItem.Size = new Size(215, 22);
-            this.undoMenuItem.Text = "Undo";
-            this.undoMenuItem.Click += new EventHandler(undoMenuItem_Click);
+            undoMenuItem.Name = "undoMenuItem";
+            undoMenuItem.Size = new Size(215, 22);
+            undoMenuItem.Text = "Undo";
+            undoMenuItem.Click += new EventHandler(UndoMenuItem_Click);
             //
             // redoMenuItem
             //
-            this.redoMenuItem.Name = "redoMenuItem";
-            this.redoMenuItem.Size = new Size(215, 22);
-            this.redoMenuItem.Text = "Redo";
-            this.redoMenuItem.Click += new EventHandler(redoMenuItem_Click);
+            redoMenuItem.Name = "redoMenuItem";
+            redoMenuItem.Size = new Size(215, 22);
+            redoMenuItem.Text = "Redo";
+            redoMenuItem.Click += new EventHandler(RedoMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(212, 6);
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new System.Drawing.Size(212, 6);
             // 
             // copyMenuItem
             // 
-            this.copyMenuItem.Name = "copyMenuItem";
-            this.copyMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.copyMenuItem.Text = "Copy This Node And All Subnodes";
-            this.copyMenuItem.Click += new EventHandler(copyMenuItem_Click);
+            copyMenuItem.Name = "copyMenuItem";
+            copyMenuItem.Size = new System.Drawing.Size(215, 22);
+            copyMenuItem.Text = "Copy This Node And All Subnodes";
+            copyMenuItem.Click += new EventHandler(CopyMenuItem_Click);
             // 
             // pasteMenuItem
             // 
-            this.pasteMenuItem.Name = "pasteMenuItem";
-            this.pasteMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.pasteMenuItem.Text = "Paste Node And Subnodes";
-            this.pasteMenuItem.Click += new EventHandler(pasteMenuItem_Click);
+            pasteMenuItem.Name = "pasteMenuItem";
+            pasteMenuItem.Size = new System.Drawing.Size(215, 22);
+            pasteMenuItem.Text = "Paste Node And Subnodes";
+            pasteMenuItem.Click += new EventHandler(PasteMenuItem_Click);
             // 
             // pasteLinkMenuItem
             // 
-            this.pasteLinkMenuItem.Name = "pasteLinkMenuItem";
-            this.pasteLinkMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.pasteLinkMenuItem.Text = "Paste Node As Link";
-            this.pasteLinkMenuItem.Click += new EventHandler(pasteLinkMenuItem_Click);
+            pasteLinkMenuItem.Name = "pasteLinkMenuItem";
+            pasteLinkMenuItem.Size = new System.Drawing.Size(215, 22);
+            pasteLinkMenuItem.Text = "Paste Node As Link";
+            pasteLinkMenuItem.Click += new EventHandler(PasteLinkMenuItem_Click);
             //
             // followLinkMenuItem
             //
-            this.followLinkMenuItem.Enabled = false;
-            this.followLinkMenuItem.Name = "followLinkMenuItem";
-            this.followLinkMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.followLinkMenuItem.Text = "Go Target Of This Link";
-            this.followLinkMenuItem.Click += new EventHandler(followLinkMenuItem_Click);
+            followLinkMenuItem.Enabled = false;
+            followLinkMenuItem.Name = "followLinkMenuItem";
+            followLinkMenuItem.Size = new System.Drawing.Size(215, 22);
+            followLinkMenuItem.Text = "Go Target Of This Link";
+            followLinkMenuItem.Click += new EventHandler(FollowLinkMenuItem_Click);
             //
             // makeLinkRealMenuItem
             //
-            this.makeLinkRealMenuItem.Enabled = false;
-            this.makeLinkRealMenuItem.Name = "makeLinkRealMenuItem";
-            this.makeLinkRealMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.makeLinkRealMenuItem.Text = "Redirect All Links Of This Type To This Link";
-            this.makeLinkRealMenuItem.Click += new EventHandler(makeLinkRealMenuItem_Click);
+            makeLinkRealMenuItem.Enabled = false;
+            makeLinkRealMenuItem.Name = "makeLinkRealMenuItem";
+            makeLinkRealMenuItem.Size = new System.Drawing.Size(215, 22);
+            makeLinkRealMenuItem.Text = "Redirect All Links Of This Type To This Link";
+            makeLinkRealMenuItem.Click += new EventHandler(MakeLinkRealMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(212, 6);
+            toolStripSeparator4.Name = "toolStripSeparator4";
+            toolStripSeparator4.Size = new System.Drawing.Size(212, 6);
             //
             // toolStripSeparator5
             //
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new Size(212, 6);
+            toolStripSeparator5.Name = "toolStripSeparator5";
+            toolStripSeparator5.Size = new Size(212, 6);
             // 
             // deleteMenuItem
             // 
-            this.deleteMenuItem.Name = "deleteMenuItem";
-            this.deleteMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.deleteMenuItem.Text = "Delete This Node And All Subnodes";
-            this.deleteMenuItem.Click += new EventHandler(deleteMenuItem_Click);
+            deleteMenuItem.Name = "deleteMenuItem";
+            deleteMenuItem.Size = new System.Drawing.Size(215, 22);
+            deleteMenuItem.Text = "Delete This Node And All Subnodes";
+            deleteMenuItem.Click += new EventHandler(DeleteMenuItem_Click);
             #endregion
             // 
             // LinkedTree
             // 
-            this.LineColor = System.Drawing.Color.Black;
+            LineColor = System.Drawing.Color.Black;
 
-            this.AfterExpand += new TreeViewEventHandler(LinkedTree_AfterExpand);
-            this.AfterCollapse += new TreeViewEventHandler(LinkedTree_AfterCollapse);
+            AfterExpand += new TreeViewEventHandler(LinkedTree_AfterExpand);
+            AfterCollapse += new TreeViewEventHandler(LinkedTree_AfterCollapse);
 
-            this.treeContextMenu.ResumeLayout(false);
-            this.ResumeLayout(false);
+            treeContextMenu.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #region Menu Event Handlers
 
-        void addNewChildNodeMenuItem_Click(object sender, EventArgs e)
+        void AddNewChildNodeMenuItem_Click(object sender, EventArgs e)
         {
             AddNewNode();
         }
 
-        void editTextMenuItem_Click(object sender, EventArgs e)
+        void EditTextMenuItem_Click(object sender, EventArgs e)
         {
             myParentTab.EditNode();
         }
 
-        void moveUpMenuItem_Click(object sender, EventArgs e)
+        void MoveUpMenuItem_Click(object sender, EventArgs e)
         {
             MoveNodeUp();
         }
 
-        void moveDownMenuItem_Click(object sender, EventArgs e)
+        void MoveDownMenuItem_Click(object sender, EventArgs e)
         {
             MoveNodeDown();
         }
 
-        void undoMenuItem_Click(object sender, EventArgs e)
+        void UndoMenuItem_Click(object sender, EventArgs e)
         {
             myParentTab.Undo();
         }
 
-        void redoMenuItem_Click(object sender, EventArgs e)
+        void RedoMenuItem_Click(object sender, EventArgs e)
         {
             myParentTab.Redo();
         }
 
-        void followLinkMenuItem_Click(object sender, EventArgs e)
+        void FollowLinkMenuItem_Click(object sender, EventArgs e)
         {
             FollowSelectedLink();
         }
 
-        void makeLinkRealMenuItem_Click(object sender, EventArgs e)
+        void MakeLinkRealMenuItem_Click(object sender, EventArgs e)
         {
             MakeSelectedLinkReal();
         }
 
-        void copyMenuItem_Click(object sender, EventArgs e)
+        void CopyMenuItem_Click(object sender, EventArgs e)
         {
             myParentTab.CopySelectedNodeToClipboard();
         }
 
-        void pasteMenuItem_Click(object sender, EventArgs e)
+        void PasteMenuItem_Click(object sender, EventArgs e)
         {
             myParentTab.PasteNodeAndSubnodes();
         }
 
-        void pasteLinkMenuItem_Click(object sender, EventArgs e)
+        void PasteLinkMenuItem_Click(object sender, EventArgs e)
         {
             myParentTab.PasteNodeAsLink();
         }
 
-        void deleteMenuItem_Click(object sender, EventArgs e)
+        void DeleteMenuItem_Click(object sender, EventArgs e)
         {
             myParentTab.DeleteTreeNode();
         }
@@ -390,22 +390,22 @@ namespace ConversationEditorGui
 
         public void SortTree()
         {
-            this.TreeViewNodeSorter = new NodeSorter();
+            TreeViewNodeSorter = new NodeSorter();
         }
 
         public void NewNodeSelected(object sender, TreeViewEventArgs e)
         {
             if (selectedNode.isLink)
             {
-                this.makeLinkRealMenuItem.Enabled = true;
-                this.followLinkMenuItem.Enabled = true;
-                this.addNewChildNodeMenuItem.Enabled = false;
+                makeLinkRealMenuItem.Enabled = true;
+                followLinkMenuItem.Enabled = true;
+                addNewChildNodeMenuItem.Enabled = false;
             }
             else
             {
-                this.makeLinkRealMenuItem.Enabled = false;
-                this.followLinkMenuItem.Enabled = false;
-                this.addNewChildNodeMenuItem.Enabled = true;
+                makeLinkRealMenuItem.Enabled = false;
+                followLinkMenuItem.Enabled = false;
+                addNewChildNodeMenuItem.Enabled = true;
             }
         }
 
@@ -479,7 +479,7 @@ namespace ConversationEditorGui
 
         public void DrawTree(TreeConversation treeConversation)
         {
-            this.TreeViewNodeSorter = null;
+            TreeViewNodeSorter = null;
             Nodes.Clear();
             myTreeConversation = treeConversation;
             treeConversation.myTree = this;
@@ -626,31 +626,31 @@ namespace ConversationEditorGui
 
         public void GotUndos()
         {
-            this.undoMenuItem.Enabled = true;
+            undoMenuItem.Enabled = true;
         }
 
         public void GotRedos()
         {
-            this.redoMenuItem.Enabled = true;
+            redoMenuItem.Enabled = true;
         }
 
         public void NoUndos()
         {
-            this.undoMenuItem.Enabled = false;
+            undoMenuItem.Enabled = false;
         }
 
         public void NoRedos()
         {
-            this.redoMenuItem.Enabled = false;
+            redoMenuItem.Enabled = false;
         }
 
         public void myTree_BeforeExpand(object sender, TreeViewCancelEventArgs e)
         {
             if (!myParentTab.programmaticExpansion && ((ConversationNode)e.Node).nodeType != ConversationNodeType.Root)
             {
-                if (this.myParentTab.collapsedNodes.Contains(((ConversationNode)e.Node).myId))
+                if (myParentTab.collapsedNodes.Contains(((ConversationNode)e.Node).myId))
                 {
-                    this.myParentTab.collapsedNodes.Remove(((ConversationNode)e.Node).myId);
+                    myParentTab.collapsedNodes.Remove(((ConversationNode)e.Node).myId);
                 }
             }
         }
@@ -659,7 +659,7 @@ namespace ConversationEditorGui
         {
             if (!myParentTab.programmaticExpansion)
             {
-                this.myParentTab.collapsedNodes.Add(((ConversationNode)e.Node).myId);
+                myParentTab.collapsedNodes.Add(((ConversationNode)e.Node).myId);
             }
         }
 

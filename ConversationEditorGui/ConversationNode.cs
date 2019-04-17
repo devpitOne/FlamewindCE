@@ -237,10 +237,12 @@ namespace ConversationEditorGui
         #region Initialization and Setup Functions
         public static ConversationNode GetConversationNode(ContentNode myContentNode, TreeConversation thisTreeConversation)
         {
-            ConversationNode newNode = new ConversationNode();
-            newNode.myNode = myContentNode;
-            newNode.myTreeConversation = thisTreeConversation;
-            newNode.Name = "";
+            ConversationNode newNode = new ConversationNode
+            {
+                myNode = myContentNode,
+                myTreeConversation = thisTreeConversation,
+                Name = ""
+            };
 
             for (int i = 0; i < myContentNode.subNodes.Count; i++)
             {
@@ -254,8 +256,10 @@ namespace ConversationEditorGui
 
         public static ConversationNode NewConversationNode(int nextIdNum, int nextOrderNum)
         {
-            ConversationNode newNode = new ConversationNode();
-            newNode.myNode = ContentNode.NewContentNode(nextIdNum, nextOrderNum);
+            ConversationNode newNode = new ConversationNode
+            {
+                myNode = ContentNode.NewContentNode(nextIdNum, nextOrderNum)
+            };
             return newNode;
         }
 
@@ -608,12 +612,14 @@ namespace ConversationEditorGui
             {
                 UndoState undo = UndoState.CaptureCurrentState(myTreeConversation.myTree);
                 parent.myTreeConversation.UpdateTab();
-                ConversationNode newNode = new ConversationNode();
-                newNode.myTreeConversation = this.myTreeConversation;
-                ConversationNode originalNode = myTreeConversation.GetConversationNodeById(this.linkTo);
+                ConversationNode newNode = new ConversationNode
+                {
+                    myTreeConversation = myTreeConversation
+                };
+                ConversationNode originalNode = myTreeConversation.GetConversationNodeById(linkTo);
                 originalNode.myLinks.Add(newNode);
                 newNode.myNode = ContentNode.NewContentNodeLink(parent.GetNextOrderNum());
-                newNode.myNode.linkTo = this.myNode.linkTo;
+                newNode.myNode.linkTo = myNode.linkTo;
                 parent.Nodes.Add(newNode);
                 if (parent.nodeType == ConversationNodeType.Root)
                 {

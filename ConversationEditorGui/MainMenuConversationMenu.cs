@@ -26,59 +26,59 @@ namespace ConversationEditorGui
 
         private void InitializeComponent()
         {
-            this.mainConversationDropdownMenu_TestConversation = GetMenuOption
+            mainConversationDropdownMenu_TestConversation = GetMenuOption
             (
                 "mainConversationDropdownMenu_TestConversation",
                 "Test Conversation",
                 Keys.F5
             );
-            this.mainConversationDropdownMenu_TestConversation.Click += new EventHandler(mainConversationDropdownMenu_TestConversation_Click);
+            mainConversationDropdownMenu_TestConversation.Click += new EventHandler(mainConversationDropdownMenu_TestConversation_Click);
 
-            this.mainConversationDropdownMenu_Separator1 = GetMenuSeparator("mainConversationDropdownMenu_Separator1");
+            mainConversationDropdownMenu_Separator1 = GetMenuSeparator("mainConversationDropdownMenu_Separator1");
 
-            this.mainConversationDropdownMenu_ExpandAllNodes = GetMenuOption
+            mainConversationDropdownMenu_ExpandAllNodes = GetMenuOption
             (
                 "mainConversationDropdownMenu_ExpandAllNodes",
                 "Expand All Nodes In Conversation",
                 Keys.F2
             );
-            this.mainConversationDropdownMenu_ExpandAllNodes.Click += new EventHandler(mainConversationDropdownMenu_ExpandAllNodes_Click);
+            mainConversationDropdownMenu_ExpandAllNodes.Click += new EventHandler(mainConversationDropdownMenu_ExpandAllNodes_Click);
 
-            this.mainConversationDropdownMenu_CollapseAllNodes = GetMenuOption
+            mainConversationDropdownMenu_CollapseAllNodes = GetMenuOption
             (
                 "mainConversationDropdownMenu_CollapseAllNodes",
                 "Collapse All Nodes In Conversation",
                 Keys.F3
             );
-            this.mainConversationDropdownMenu_CollapseAllNodes.Click += new EventHandler(mainConversationDropdownMenu_CollapseAllNodes_Click);
+            mainConversationDropdownMenu_CollapseAllNodes.Click += new EventHandler(mainConversationDropdownMenu_CollapseAllNodes_Click);
 
-            this.mainConversationDropdownMenu_Separator2 = GetMenuSeparator("mainConversationDropdownMenu_Separator2");
+            mainConversationDropdownMenu_Separator2 = GetMenuSeparator("mainConversationDropdownMenu_Separator2");
 
-            this.mainConversationDropdownMenu_CopyConversationAsText = GetMenuOption
+            mainConversationDropdownMenu_CopyConversationAsText = GetMenuOption
             (
                 "mainConversationDropdownMenu_CopyConversationAsText",
                 "Copy Conversation As Text",
                 Keys.None
             );
-            this.mainConversationDropdownMenu_CopyConversationAsText.Click += new EventHandler(mainConversationDropdownMenu_CopyConversationAsText_Click);
+            mainConversationDropdownMenu_CopyConversationAsText.Click += new EventHandler(mainConversationDropdownMenu_CopyConversationAsText_Click);
 
-            this.DropDownItems.AddRange
+            DropDownItems.AddRange
             (
                 new ToolStripItem[]
                 {
-                    this.mainConversationDropdownMenu_TestConversation,
-                    this.mainConversationDropdownMenu_Separator1,
-                    this.mainConversationDropdownMenu_ExpandAllNodes,
-                    this.mainConversationDropdownMenu_CollapseAllNodes,
-                    this.mainConversationDropdownMenu_Separator2,
-                    this.mainConversationDropdownMenu_CopyConversationAsText
+                    mainConversationDropdownMenu_TestConversation,
+                    mainConversationDropdownMenu_Separator1,
+                    mainConversationDropdownMenu_ExpandAllNodes,
+                    mainConversationDropdownMenu_CollapseAllNodes,
+                    mainConversationDropdownMenu_Separator2,
+                    mainConversationDropdownMenu_CopyConversationAsText
                 }
             );
 
-            this.Name = "mainConversationDropdownMenu";
-            this.ShortcutKeys = ((Keys)(Keys.Alt | Keys.C));
-            this.Size = new Size(83, 20);
-            this.Text = "&Conversation";
+            Name = "mainConversationDropdownMenu";
+            ShortcutKeys = (Keys.Alt | Keys.C);
+            Size = new Size(83, 20);
+            Text = "&Conversation";
 
         }
 
@@ -104,10 +104,12 @@ namespace ConversationEditorGui
 
         private static ToolStripMenuItem GetMenuOption(string name, string text, Keys shortcuts)
         {
-            ToolStripMenuItem newToolStripMenuItem = new ToolStripMenuItem();
-            newToolStripMenuItem.Size = new Size(331, 22);
-            newToolStripMenuItem.Name = name;
-            newToolStripMenuItem.Text = text;
+            ToolStripMenuItem newToolStripMenuItem = new ToolStripMenuItem
+            {
+                Size = new Size(331, 22),
+                Name = name,
+                Text = text
+            };
             if (shortcuts != Keys.None)
             {
                 newToolStripMenuItem.ShortcutKeys = shortcuts;
@@ -117,9 +119,11 @@ namespace ConversationEditorGui
 
         private static ToolStripSeparator GetMenuSeparator(string name)
         {
-            ToolStripSeparator newToolStripMenuSeparator = new ToolStripSeparator();
-            newToolStripMenuSeparator.Size = new Size(318, 6);
-            newToolStripMenuSeparator.Name = name;
+            ToolStripSeparator newToolStripMenuSeparator = new ToolStripSeparator
+            {
+                Size = new Size(318, 6),
+                Name = name
+            };
             return newToolStripMenuSeparator;
         }
     }

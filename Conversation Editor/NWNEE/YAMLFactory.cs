@@ -388,8 +388,10 @@ namespace Editor.NWNEE
             int structIter = 0;
             foreach (var rootNode in conv.subNodes)
             {
-                var newNode = new NWNStruct();
-                newNode.__struct_id = structIter.ToString();
+                var newNode = new NWNStruct
+                {
+                    __struct_id = structIter.ToString()
+                };
                 Info checkFor;
                 newNode.Active = TypeValue("resref", (checkFor = rootNode.additionalData.Find(x => x.variableName == "Active")) != null ? checkFor.variableValue : "");
                 newNode.Index = TypeValue("dword", rootNode.additionalData.Find(x => x.variableName == "__struct_id").variableValue);
@@ -478,8 +480,10 @@ namespace Editor.NWNEE
                 int structIter = 0;
                 foreach (var child in oldNode.subNodes)
                 {
-                    var newReply = new NWNStruct();
-                    newReply.__struct_id = structIter.ToString();
+                    var newReply = new NWNStruct
+                    {
+                        __struct_id = structIter.ToString()
+                    };
                     //Does Active need to carry a value?
                     newReply.Active = TypeValue("resref", "");
                     var structIdNodeChild = child.additionalData.Find(y => y.variableName == "__struct_id");
