@@ -13,7 +13,7 @@ namespace EditorTests
     [TestClass]
     public class YAML_Tests
     {
-        string fileName = @"<full string path here>";
+        readonly string fileName = @"<full string path here>";
 
         [TestMethod]
         public void YAMLDeserialize_Test()

@@ -1,5 +1,6 @@
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace ConversationEditorGui
 {
@@ -24,18 +25,62 @@ namespace ConversationEditorGui
 
         public LinkedTextBox() : base()
         {
-            this.ContextMenu = null;
+            ContextMenu = null;
             ContextMenuOpening += ContextMenu_Opening;
+            KeyDown += ShortcutKeys;
         }
 
+        #region Events
+        public void ShortcutKeys(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.F6:
+                    AddAction_Click(sender, new RoutedEventArgs());
+                    break;
+                case Key.F7:
+                    AddHighlight_Click(sender, new RoutedEventArgs());
+                    break;
+                case Key.F8:
+                    AddCheck_Click(sender, new RoutedEventArgs());
+                    break;
+                case Key.F9:
+                    //Add Tag
+                    //AddAction_Click(sender, new RoutedEventArgs());
+                    break;
+                default: break;
+            }
+        }
         public void ContextMenu_Opening(object sender, ContextMenuEventArgs e)
         {
-            var tokenAdd = new MenuItem();
-            tokenAdd.Header = "Add Token";
-            tokenAdd.Click += AddToken_Click;
-            var items = new MenuItem[] { tokenAdd };
+            var addAction = new MenuItem();
+            addAction.Header = "Add Action";
+            addAction.Click += AddAction_Click;
+            var addHigh = new MenuItem();
+            addHigh.Header = "Add Highlight";
+            addHigh.Click += AddHighlight_Click;
+            var addCheck = new MenuItem();
+            addCheck.Header = "Add Skill Check";
+            addCheck.Click += AddCheck_Click;
+            var items = new MenuItem[] { addAction, addHigh, addCheck };
             this.InjectIntoDefaultMenu(e, p => base.OnContextMenuOpening(p), items);
         }
+
+        private void AddAction_Click(object sender, RoutedEventArgs e)
+        {
+            AddTag("Action");
+        }
+
+        private void AddHighlight_Click(object sender, RoutedEventArgs e)
+        {
+            AddTag("Highlight");
+        }
+
+        private void AddCheck_Click(object sender, RoutedEventArgs e)
+        {
+            AddTag("Check", "");
+        }
+        #endregion
 
         /// <summary>
         /// TODO: Expand to list of menu items
@@ -46,14 +91,12 @@ namespace ConversationEditorGui
         ///<StartHighlight></Start>
         ///<StartCheck>[SkillName?]</Start>
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddToken_Click(object sender, RoutedEventArgs e)
+        private void AddTag(string token, string endToken = "")
         {
             var selectionStart = SelectionStart;
             var newText = Text;
-            newText = newText.Insert(selectionStart + SelectionLength, "</>");
-            newText = newText.Insert(selectionStart, "<>");
+            newText = newText.Insert(selectionStart + SelectionLength, endToken+ "]</Start>");
+            newText = newText.Insert(selectionStart, "<Start"+token+">[");
             Text = newText;
 
         }
