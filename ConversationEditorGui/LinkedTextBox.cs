@@ -9,7 +9,8 @@ namespace ConversationEditorGui
         public LinkedTree myTree = null;
         public LinkedCommentsBox myCommentsBox = null;
         public string textOnEntry = "";
-        public UndoState stateOnEntry;        
+        public UndoState stateOnEntry;
+        
 
         public void PasteIntoBox(string toPaste)
         {
@@ -45,8 +46,7 @@ namespace ConversationEditorGui
                     AddCheck_Click(sender, new RoutedEventArgs());
                     break;
                 case Key.F9:
-                    //Add Tag
-                    //AddAction_Click(sender, new RoutedEventArgs());
+                    AddToken_Click(sender, new RoutedEventArgs());
                     break;
                 default: break;
             }
@@ -77,7 +77,13 @@ namespace ConversationEditorGui
                 InputGestureText = "F8"
             };
             addCheck.Click += AddCheck_Click;
-            var items = new MenuItem[] { addAction, addHigh, addCheck };
+            var addToken = new MenuItem
+            {
+                Header = "Add Token",
+                InputGestureText = "F9"
+            };
+            addToken.Click += AddToken_Click;
+            var items = new MenuItem[] { addAction, addHigh, addCheck, addToken };
             this.InjectIntoDefaultMenu(e, p => base.OnContextMenuOpening(p), items);
         }
 
@@ -95,16 +101,18 @@ namespace ConversationEditorGui
         {
             AddTag("Check", "");
         }
+
+        private void AddToken_Click(object sender, RoutedEventArgs e)
+        {
+            var test = new TokenSelect();
+            test.ShowDialog();
+            if (test.SelectedToken == null)
+                return;
+            AddToken(test.SelectedToken);
+        }
         #endregion
 
         /// <summary>
-        /// TODO: Expand to list of menu items
-        /// Tagging - 
-        ///Standard -
-        ///Highlight -
-        ///<StartAction></Start>
-        ///<StartHighlight></Start>
-        ///<StartCheck>[SkillName?]</Start>
         /// </summary>
         private void AddTag(string token, string endToken = "")
         {
@@ -123,7 +131,7 @@ namespace ConversationEditorGui
             var selectionStart = SelectionStart;
             var newText = Text;
             Text = newText.Insert(selectionStart, token);
-            Select(selectionStart, token.Length);
+            Select(selectionStart+token.Length, 0);
         }
     }
 }

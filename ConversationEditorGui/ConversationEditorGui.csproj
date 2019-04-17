@@ -148,6 +148,9 @@
     <EmbeddedResource Include="TreeTab.resx">
       <DependentUpon>TreeTab.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TokenSelect.resx">
+      <DependentUpon>TokenSelect.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -174,7 +177,16 @@
     </Compile>
     <Compile Include="UndoCollection.cs" />
     <Compile Include="UndoState.cs" />
+    <Compile Include="TokenSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TokenSelect.Designer.cs">
+      <DependentUpon>TokenSelect.cs</DependentUpon>
+    </Compile>
     <Compile Include="Win32.cs" />
+    <None Include="Tokens.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Conversation Editor\Editor.csproj">
