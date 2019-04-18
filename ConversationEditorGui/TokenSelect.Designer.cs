@@ -29,24 +29,34 @@
         private void InitializeComponent()
         {
             this.listViewTokens = new System.Windows.Forms.ListView();
+            this.Token = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.Token = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listViewTokens
             // 
             this.listViewTokens.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Token});
+            this.listViewTokens.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.listViewTokens.Dock = System.Windows.Forms.DockStyle.Left;
+            this.listViewTokens.FullRowSelect = true;
             this.listViewTokens.HideSelection = false;
-            this.listViewTokens.Location = new System.Drawing.Point(4, 4);
+            this.listViewTokens.HoverSelection = true;
+            this.listViewTokens.LabelWrap = false;
+            this.listViewTokens.Location = new System.Drawing.Point(0, 0);
             this.listViewTokens.MultiSelect = false;
             this.listViewTokens.Name = "listViewTokens";
-            this.listViewTokens.Size = new System.Drawing.Size(123, 610);
+            this.listViewTokens.Size = new System.Drawing.Size(123, 626);
             this.listViewTokens.TabIndex = 0;
             this.listViewTokens.UseCompatibleStateImageBehavior = false;
-            this.listViewTokens.View = System.Windows.Forms.View.List;
+            this.listViewTokens.View = System.Windows.Forms.View.Details;
             this.listViewTokens.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Item_DblClick);
+            // 
+            // Token
+            // 
+            this.Token.Text = "Token";
+            this.Token.Width = 80;
             // 
             // buttonOk
             // 
@@ -67,10 +77,6 @@
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.Cancel_Click);
-            // 
-            // Token
-            // 
-            this.Token.Width = 80;
             // 
             // TokenSelect
             // 
