@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -10,7 +12,7 @@ namespace ConversationEditorGui
         public LinkedCommentsBox myCommentsBox = null;
         public string textOnEntry = "";
         public UndoState stateOnEntry;
-        
+
 
         public void PasteIntoBox(string toPaste)
         {
@@ -104,11 +106,9 @@ namespace ConversationEditorGui
 
         private void AddToken_Click(object sender, RoutedEventArgs e)
         {
-            var test = new TokenSelect();
-            test.ShowDialog();
-            if (test.SelectedToken == null)
-                return;
-            AddToken(test.SelectedToken);
+            var token = SelectToken();
+            if (token != null)
+                AddToken(token);
         }
         #endregion
 
@@ -119,8 +119,8 @@ namespace ConversationEditorGui
             var selectionStart = SelectionStart;
             var newText = Text;
             var addLength = ("<Start" + token + ">[").Length;
-            newText = newText.Insert(selectionStart + SelectionLength, endToken+ "]</Start>");
-            newText = newText.Insert(selectionStart, "<Start"+token+">[");
+            newText = newText.Insert(selectionStart + SelectionLength, endToken + "]</Start>");
+            newText = newText.Insert(selectionStart, "<Start" + token + ">[");
             Text = newText;
             Select(selectionStart + addLength, 0);
 
@@ -131,7 +131,48 @@ namespace ConversationEditorGui
             var selectionStart = SelectionStart;
             var newText = Text;
             Text = newText.Insert(selectionStart, token);
-            Select(selectionStart+token.Length, 0);
+            Select(selectionStart + token.Length, 0);
+        }
+
+        private string SelectToken()
+        {
+            var tokenS = new TokenSelect();
+            try
+            {
+                using (var tokenFile = new FileStream("Tokens.csv", FileMode.Open, FileAccess.Read))
+                {
+                    using (var streamReader = new StreamReader(tokenFile))
+                    {
+                        string line;
+                        while ((line = streamReader.ReadLine()) != null)
+                        {
+
+                            tokenS.ListViewTokens.Add(new System.Windows.Forms.ListViewItem
+                            {
+                                Text = line.Split(',')[0],
+                                Tag = line.Split(',')[1]
+                            });
+                        }
+                    }
+                }
+                tokenS.ShowDialog();
+                return tokenS.SelectedToken;
+            }
+            catch (FileNotFoundException exc)
+            {
+                MessageBox.Show("Tokens.csv was not found in the same directory.");
+                return null;
+            }
+            catch (IOException exc)
+            {
+                MessageBox.Show("Tokens.csv is open in another program or Access restricted.");
+                return null;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Could not read Tokens.csv, the file may be corrupted or a row may be missing a value.");
+                return null;
+            }
         }
     }
 }

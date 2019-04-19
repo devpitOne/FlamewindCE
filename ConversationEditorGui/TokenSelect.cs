@@ -6,33 +6,18 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Resources;
-using System.IO;
+using static System.Windows.Forms.ListView;
 
 namespace ConversationEditorGui
 {
     public partial class TokenSelect : Form
     {
         public string SelectedToken;
+        public ListViewItemCollection ListViewTokens { get { return listViewTokens.Items; } }
 
         public TokenSelect()
         {
             InitializeComponent();
-            using (var tokenFile = new FileStream("Tokens.csv", FileMode.Open, FileAccess.Read)) {
-                using (var streamReader = new StreamReader(tokenFile))
-                {
-                    string line;
-                    while ((line = streamReader.ReadLine()) != null)
-                    {
-                        
-                        listViewTokens.Items.Add(new ListViewItem
-                        {
-                            Text = line.Split(',')[0],
-                            Tag = line.Split(',')[1]
-                    });
-                    }
-                }
-            }
         }
 
         public void Item_DblClick(object sender, MouseEventArgs e)
