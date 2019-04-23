@@ -187,6 +187,11 @@ namespace ConversationEditorGui
                     }
                 }
 
+                if (isTlk)
+                {
+                    Text = "STRREF: "+Text;
+                }
+
                 if (nodeType == ConversationNodeType.NPC)
                 {
                     ForeColor = Color.Maroon;
@@ -1080,6 +1085,24 @@ namespace ConversationEditorGui
                 {
                     ((ConversationNode)this.Nodes[i]).SetExpandState((ConversationNode)original.Nodes[i]);
                 }
+            }
+        }
+
+        public void StrrefToggle()
+        {
+            if (_isTlk.HasValue && _isTlk.Value)
+            {
+                //remove
+                Info node = myNode.additionalData.Find(x => x.variableName == "str_ref");
+                myNode.additionalData.Remove(node);
+                _isTlk = false;
+            }
+            else
+            {
+                //Add
+                myNode.additionalData.Add(new Info("str_ref",""));
+                _tlkRef = "";
+                _isTlk = true;
             }
         }
     }

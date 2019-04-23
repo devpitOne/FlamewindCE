@@ -46,6 +46,7 @@ namespace ConversationEditorGui
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripSeparator toolStripSeparator5;
         private ToolStripMenuItem deleteMenuItem;
+        private ToolStripMenuItem strrefItem;
         public ContextMenuStrip treeContextMenu;
         #endregion
 
@@ -160,6 +161,7 @@ namespace ConversationEditorGui
             toolStripSeparator4 = new ToolStripSeparator();
             toolStripSeparator5 = new ToolStripSeparator();
             deleteMenuItem = new ToolStripMenuItem();
+            strrefItem = new ToolStripMenuItem();
             treeContextMenu.SuspendLayout();
             SuspendLayout();
             // 
@@ -184,7 +186,7 @@ namespace ConversationEditorGui
             toolStripSeparator5,
             deleteMenuItem});
             treeContextMenu.Name = "treeContextMenu";
-            treeContextMenu.Size = new System.Drawing.Size(216, 192);
+            treeContextMenu.Size = new System.Drawing.Size(216, 192);            
             // 
             // addNewChildNodeMenuItem
             // 
@@ -296,6 +298,14 @@ namespace ConversationEditorGui
             deleteMenuItem.Size = new System.Drawing.Size(215, 22);
             deleteMenuItem.Text = "Delete This Node And All Subnodes";
             deleteMenuItem.Click += new EventHandler(DeleteMenuItem_Click);
+            //
+            // strrefItem
+            //            
+            strrefItem.Name = "strrefItem";
+            strrefItem.Size = new System.Drawing.Size(215, 22);
+            strrefItem.Click += new EventHandler(StrrefMenuItem_Click);
+            treeContextMenu.Opening += new CancelEventHandler(TreeViewMenuOpening);
+
             #endregion
             // 
             // LinkedTree
@@ -369,6 +379,23 @@ namespace ConversationEditorGui
         void DeleteMenuItem_Click(object sender, EventArgs e)
         {
             myParentTab.DeleteTreeNode();
+        }
+
+        void StrrefMenuItem_Click(object sender, EventArgs e)
+        {
+            selectedNode.StrrefToggle();
+            var updateNode = new TreeViewEventArgs(selectedNode);
+            OnAfterSelect(updateNode);
+        }
+
+        void TreeViewMenuOpening(object sender, EventArgs e)
+        {
+            //Dynamic addition of the menu item and name
+            if (selectedNode.nodeType != ConversationNodeType.Root)
+            {
+                strrefItem.Text = selectedNode.isTlk ? "Remove Strref" : "Add Strref";  
+                treeContextMenu.Items.Add(strrefItem);
+            }
         }
 
         #endregion
