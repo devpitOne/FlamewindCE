@@ -219,7 +219,6 @@ namespace ConversationEditorGui
             mainToolbar_CopyConversationAsText.Enabled = false;
             mainToolbar_CopyNode.Enabled = false;
             mainToolbar_DeleteNode.Enabled = false;
-            mainToolbar_DeleteNode.Enabled = true;
             mainToolbar_MoveNodeDown.Enabled = false;
             mainToolbar_MoveNodeUp.Enabled = false;
             mainToolbar_NewChildNode.Enabled = false;
