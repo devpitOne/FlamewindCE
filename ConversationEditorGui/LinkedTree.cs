@@ -384,6 +384,7 @@ namespace ConversationEditorGui
         void StrrefMenuItem_Click(object sender, EventArgs e)
         {
             selectedNode.StrrefToggle();
+            selectedNode.UpdateTextAndColor();
             var updateNode = new TreeViewEventArgs(selectedNode);
             OnAfterSelect(updateNode);
         }
