@@ -79,7 +79,7 @@ namespace ConversationEditorGui
         {
             if (_backBuffer == null)
             {
-                _backBuffer = new Bitmap(this.ClientSize.Width, this.ClientSize.Height);
+                _backBuffer = new Bitmap(ClientSize.Width > 0 ? ClientSize.Width : 1, ClientSize.Height > 0 ? ClientSize.Height : 1);
             }
             Graphics g = Graphics.FromImage(_backBuffer);
             g.Dispose();
