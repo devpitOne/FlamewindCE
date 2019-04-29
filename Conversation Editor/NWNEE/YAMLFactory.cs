@@ -201,7 +201,7 @@ namespace Editor.NWNEE
 
         /// <summary>
         /// TODO: Read in order that nodes are to keep file from changing around
-        /// Not perfectly encapsulated, relies on master
+        /// Not perfectly encapsulated, relies on master(the variable)
         /// </summary>
         /// <param name="list"></param>
         /// <param name="entry"></param>
@@ -243,7 +243,7 @@ namespace Editor.NWNEE
                 {
                     if (oldNode.Text.str_ref != null)
                         newNode.additionalData.Add(new Info("str_ref", oldNode.Text.str_ref));
-                    else
+                    if (oldNode.Text.value != null && oldNode.Text.value.Count > 0)
                         newNode.conversationText = oldNode.Text.value.FirstOrDefault().Value;
                     //StartingList Attributes
                     if (entryTag.Active != null)
@@ -367,7 +367,7 @@ namespace Editor.NWNEE
             {
                 master.EndConversation = TypeValue("resref", "nw_walk_wp");
             }
-            //TODO: Fix NumWords, should be a word count?
+            //TODO: Fix NumWords, should be a word count? The toolset seems to automatically update it so it may not matter
             if (master.NumWords == null)
             {
                 master.NumWords = TypeValue("dword", "0");
@@ -425,7 +425,7 @@ namespace Editor.NWNEE
                         str_ref = str_ref,
                         value = new Dictionary<string, string>()
                     };
-                    if (checkFor == null)
+                    if (oldNode.conversationText != null)
                         newNode.Text.value.Add("0", oldNode.conversationText);
 
                     if (oldNode.nodeType == ConversationNodeType.NPC)
